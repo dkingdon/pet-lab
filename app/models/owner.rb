@@ -8,4 +8,8 @@ class Owner < ActiveRecord::Base
     # stretch
   end
 
+  validates :first_name, presence: true, length: { maximum: 255 }
+  validates :last_name, presence: true, length: { maximum: 255 }
+  validates :email, presence: true, :format => /@/, uniqueness: true, length: { maximum: 255 }
+
 end
