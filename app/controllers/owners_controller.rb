@@ -25,11 +25,16 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    # stretch
+    @owner = Owner.find(params[:id])
   end
 
   def update
-    # stretch
+    @owner = Owner.find(params[:id])
+    if @owner.update_attributes(owner_params)
+    else
+      flash[:notice] = @owner.errors.full_messages
+      render 'edit'
+    end
   end
 
   def destroy

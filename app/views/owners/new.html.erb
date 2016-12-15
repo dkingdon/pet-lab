@@ -1,5 +1,6 @@
 <h1>New Owner</h1>
 <hr>
+<%= link_to "Back", owners_path %>
 <% flash.each do |key, value| %>
        <div class="alert alert-<%= key %>"><%= value %></div>
      <% end %>
