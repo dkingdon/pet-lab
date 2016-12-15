@@ -10,12 +10,11 @@ class OwnersController < ApplicationController
 
   def create
     owner = Owner.create(owner_params)
-    # owner.error.messages {"Please enter valid information"}
-    # redirect_to owner_path(owner)
 
     if owner.save
       redirect_to owner_path
     else
+      flash[:notice] = owner.errors.full_messages
       redirect_to new_owner_path
     end
   end
